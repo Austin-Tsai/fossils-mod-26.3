@@ -6,7 +6,13 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.core.Registry;
-
+import java.util.HashSet;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
+import madhacks.fossils.mixin.BlockEntityTypeAccessor;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.Identifier;
 
 public class ModBlocks {
 
@@ -17,6 +23,18 @@ public class ModBlocks {
     );
 
     public static void initialize() {
-        // Triggers block registration
+        BlockEntityTypeAccessor accessor =
+                (BlockEntityTypeAccessor) (Object) BlockEntityTypes.BRUSHABLE_BLOCK;
+
+        HashSet<Block> blocks = new HashSet<>(accessor.fossils$getValidBlocks());
+        blocks.add(DIRTY_BONE_BLOCK);
+
+        accessor.fossils$setValidBlocks(blocks);
     }
+
+    public static final BlockItem DIRTY_BONE_BLOCK_ITEM = Registry.register(
+            BuiltInRegistries.ITEM,
+            Identifier.fromNamespaceAndPath("fossils", "dirty_bone_block"),
+            new BlockItem(DIRTY_BONE_BLOCK, new net.minecraft.world.item.Item.Properties())
+    );
 }
