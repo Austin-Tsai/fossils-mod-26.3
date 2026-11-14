@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "fossils:block/dirty_bone_2"
+    "end": "fossils:block/dirty_bone_block_top_1",
+    "side": "fossils:block/dirty_bone_block_1"
   }
 }
