@@ -1,0 +1,19 @@
+package madhacks.fossils.block;
+
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BrushableBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+
+public class DirtyBoneBlock extends BrushableBlock {
+    public DirtyBoneBlock() {
+        super(
+                Blocks.BONE_BLOCK,
+                SoundEvents.BRUSH_SAND,
+                SoundEvents.BRUSH_SAND_COMPLETED,
+                BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)
+        );
+
+
+    }
+}
