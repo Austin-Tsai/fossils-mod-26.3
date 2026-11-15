@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:fossil",
+  "fossil_processors": "minecraft:fossil_rot",
+  "fossil_structures": [
+    "fossil:mod_spine_1",
+    "fossil:mod_spine_2",
+    "fossil:mod_feet_1",
+    "fossil:mod_feet_2",
+    "fossil:mod_head_1",
+    "fossil:mod_head_2",
+    "fossil:mod_tail_1",
+    "fossil:mod_tail_2"
+  ],
+  "max_empty_corners_allowed": 4,
+  "overlay_processors": "minecraft:empty",
+  "overlay_structures": [
+    "minecraft:fossil/spine_1_coal",
+    "minecraft:fossil/spine_2_coal",
+    "minecraft:fossil/spine_3_coal",
+    "minecraft:fossil/spine_4_coal",
+    "minecraft:fossil/skull_1_coal",
+    "minecraft:fossil/skull_2_coal",
+    "minecraft:fossil/skull_3_coal",
+    "minecraft:fossil/skull_4_coal"
+  ]
+}
