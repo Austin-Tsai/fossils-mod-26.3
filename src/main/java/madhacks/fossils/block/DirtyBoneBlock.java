@@ -56,7 +56,7 @@ public class DirtyBoneBlock extends BrushableBlock {
         super.neighborChanged(state, level, pos, block, orientation, movedByPiston);
 
         if (!level.isClientSide() && isTouchingWater(level, pos)) {
-            level.scheduleTick(pos, this, 40);
+            level.scheduleTick(pos, this, 10);
         }
     }
 
@@ -73,15 +73,13 @@ public class DirtyBoneBlock extends BrushableBlock {
 
         int dusted = state.getValue(BlockStateProperties.DUSTED);
 
-        if (dusted > 0) {
-            BlockState newState = state.setValue(
-                    BlockStateProperties.DUSTED,
-                    dusted - 1
+        if (dusted < 3) {
+            level.setBlock(
+                    pos,
+                    state.setValue(BlockStateProperties.DUSTED, dusted + 1),
+                    3
             );
 
-            level.setBlock(pos, newState, 3);
-
-            // Wait 2 seconds before cleaning the next stage
             level.scheduleTick(pos, this, 40);
         } else {
             level.setBlock(pos, Blocks.BONE_BLOCK.defaultBlockState(), 3);
