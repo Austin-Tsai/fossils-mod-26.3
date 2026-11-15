@@ -41,7 +41,7 @@ public class ModBlocks {
             Identifier.fromNamespaceAndPath("fossils", "dirty_bone_block"),
             new BlockItem(
                     DIRTY_BONE_BLOCK,
-                    new Item.Properties().setId(DIRTY_BONE_BLOCK_ITEM_KEY)
+                    new Item.Properties().setId(DIRTY_BONE_BLOCK_ITEM_KEY).useBlockDescriptionPrefix()
             )
     );
 
