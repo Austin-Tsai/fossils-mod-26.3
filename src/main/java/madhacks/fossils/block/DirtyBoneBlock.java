@@ -31,14 +31,6 @@ public class DirtyBoneBlock extends BrushableBlock {
         );
     }
 
-    @Override
-    protected void createBlockStateDefinition(
-            net.minecraft.world.level.block.state.StateDefinition.Builder<Block, BlockState> builder
-    ) {
-        super.createBlockStateDefinition(builder);
-        builder.add(BlockStateProperties.DUSTED);
-    }
-
     private boolean isTouchingWater(Level level, BlockPos pos) {
         for (Direction direction : Direction.values()) {
             BlockPos neighbor = pos.relative(direction);
