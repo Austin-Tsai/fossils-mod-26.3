@@ -12,7 +12,7 @@
         {
           "type": "minecraft:item",
           "name": "fossils:bone_fragment",
-          "weight": 25,
+          "weight": 45,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -22,7 +22,7 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 70
+          "weight": 50
         }
       ]
     }
