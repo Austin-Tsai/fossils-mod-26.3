@@ -1,6 +1,7 @@
 package madhacks.fossils.block;
 
 import madhacks.fossils.Fossils;
+import madhacks.fossils.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -10,6 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BrushableBlock;
 import net.minecraft.world.level.block.Block;
@@ -92,6 +94,15 @@ public class DirtyBoneBlock extends BrushableBlock {
             level.scheduleTick(pos, this, 30);
         } else {
             level.setBlock(pos, Blocks.BONE_BLOCK.defaultBlockState(), 3);
+
+            // 25% chance to drop a bone fragment
+            if (random.nextFloat() < 0.25F) {
+                Block.popResource(
+                        level,
+                        pos,
+                        new ItemStack(ModItems.BONE_FRAGMENT)
+                );
+            }
         }
     }
 
