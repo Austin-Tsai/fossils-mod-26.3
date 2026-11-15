@@ -55,8 +55,11 @@ public class DirtyBoneBlock extends BrushableBlock {
     ) {
         super.neighborChanged(state, level, pos, block, orientation, movedByPiston);
 
-        if (!level.isClientSide() && isTouchingWater(level, pos)) {
-            level.scheduleTick(pos, this, 10);
+        if (!level.isClientSide()
+                && isTouchingWater(level, pos)
+                && !level.getBlockTicks().hasScheduledTick(pos, this)) {
+
+            level.scheduleTick(pos, this, 30);
         }
     }
 
@@ -80,7 +83,7 @@ public class DirtyBoneBlock extends BrushableBlock {
                     3
             );
 
-            level.scheduleTick(pos, this, 40);
+            level.scheduleTick(pos, this, 30);
         } else {
             level.setBlock(pos, Blocks.BONE_BLOCK.defaultBlockState(), 3);
         }
