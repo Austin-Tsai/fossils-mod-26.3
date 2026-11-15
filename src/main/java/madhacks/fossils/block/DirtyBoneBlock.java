@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BrushableBlock;
@@ -35,7 +36,7 @@ public class DirtyBoneBlock extends BrushableBlock {
         for (Direction direction : Direction.values()) {
             BlockPos neighbor = pos.relative(direction);
 
-            if (level.getFluidState(neighbor).is(Fluids.WATER)) {
+            if (level.getFluidState(neighbor).is(FluidTags.WATER)) {
                 return true;
             }
         }
@@ -73,12 +74,14 @@ public class DirtyBoneBlock extends BrushableBlock {
         int dusted = state.getValue(BlockStateProperties.DUSTED);
 
         if (dusted > 0) {
-            level.setBlock(
-                    pos,
-                    state.setValue(BlockStateProperties.DUSTED, dusted - 1),
-                    3
+            BlockState newState = state.setValue(
+                    BlockStateProperties.DUSTED,
+                    dusted - 1
             );
 
+            level.setBlock(pos, newState, 3);
+
+            // Wait 2 seconds before cleaning the next stage
             level.scheduleTick(pos, this, 40);
         } else {
             level.setBlock(pos, Blocks.BONE_BLOCK.defaultBlockState(), 3);
