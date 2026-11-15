@@ -27,7 +27,7 @@ public class ModItems {
             SHARP_BONE_KEY,
             new Item(new Item.Properties()
                     .setId(SHARP_BONE_KEY)
-                    .durability(60)
+                    .durability(150)
                     .component(DataComponents.WEAPON, new Weapon(1))
                     .attributes(ItemAttributeModifiers.builder()
                             .add(Attributes.ATTACK_DAMAGE,
