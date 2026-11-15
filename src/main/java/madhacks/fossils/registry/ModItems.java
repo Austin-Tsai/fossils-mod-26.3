@@ -2,6 +2,7 @@ package madhacks.fossils.registry;
 
 import madhacks.fossils.item.BoneArrowItem;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.component.Weapon;
 
 public class ModItems {
 
@@ -26,13 +28,14 @@ public class ModItems {
             new Item(new Item.Properties()
                     .setId(SHARP_BONE_KEY)
                     .durability(60)
+                    .component(DataComponents.WEAPON, new Weapon(1))
                     .attributes(ItemAttributeModifiers.builder()
                             .add(Attributes.ATTACK_DAMAGE,
                                     new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, 4.0,
                                             AttributeModifier.Operation.ADD_VALUE),
                                     EquipmentSlotGroup.MAINHAND)
                             .add(Attributes.ATTACK_SPEED,
-                                    new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, -.8,
+                                    new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, -.6,
                                             AttributeModifier.Operation.ADD_VALUE),
                                     EquipmentSlotGroup.MAINHAND)
                             .build()))
