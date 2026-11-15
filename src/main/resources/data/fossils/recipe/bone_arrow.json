@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["F", "S", "E"],
+  "key": {
+    "F": "fossils:bone_fragment",
+    "S": "minecraft:stick",
+    "E": "minecraft:feather"
+  },
+  "result": { "id": "fossils:bone_arrow", "count": 4 }
+}

@@ -1,5 +1,6 @@
 package madhacks.fossils.registry;
 
+import madhacks.fossils.item.BoneArrowItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -36,6 +37,18 @@ public class ModItems {
                                     EquipmentSlotGroup.MAINHAND)
                             .build()))
     );
+
+    public static final ResourceKey<Item> BONE_FRAGMENT_KEY = ResourceKey.create(
+            Registries.ITEM, Identifier.fromNamespaceAndPath("fossils", "bone_fragment"));
+    public static final Item BONE_FRAGMENT = Registry.register(
+            BuiltInRegistries.ITEM, BONE_FRAGMENT_KEY,
+            new Item(new Item.Properties().setId(BONE_FRAGMENT_KEY)));
+
+    public static final ResourceKey<Item> BONE_ARROW_KEY = ResourceKey.create(
+            Registries.ITEM, Identifier.fromNamespaceAndPath("fossils", "bone_arrow"));
+    public static final Item BONE_ARROW = Registry.register(
+            BuiltInRegistries.ITEM, BONE_ARROW_KEY,
+            new BoneArrowItem(new Item.Properties().setId(BONE_ARROW_KEY)));
 
     public static void initialize() {
         // Touching this class registers the items above.

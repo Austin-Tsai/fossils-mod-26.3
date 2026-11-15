@@ -1,4 +1,6 @@
 {
   "item.fossils.sharp_bone": "Sharp Bone",
-  "block.fossils.dirty_bone_block": "Dirty Bone Block"
+  "block.fossils.dirty_bone_block": "Dirty Bone Block",
+  "item.fossils.bone_fragment": "Bone Fragment",
+  "item.fossils.bone_arrow": "Bone Arrow"
 }
